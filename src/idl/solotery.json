@@ -1,0 +1,307 @@
+{
+  "version": "0.1.0",
+  "name": "solotery",
+  "instructions": [
+    {
+      "name": "createStake",
+      "accounts": [
+        {
+          "name": "solotery",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "ticket",
+      "accounts": [
+        {
+          "name": "solotery",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "from",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "stake",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "buyShare",
+      "accounts": [
+        {
+          "name": "solotery",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "from",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "creator",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "shareNumber",
+          "type": "u8"
+        },
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "chooseWinner",
+      "accounts": [
+        {
+          "name": "solotery",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "soloteryAuthority",
+          "isMut": true,
+          "isSigner": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "sendAmountToWinner",
+      "accounts": [
+        {
+          "name": "solotery",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "owner1",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "owner2",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "owner3",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "owner4",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "owner5",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "owner6",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "owner7",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "creator",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "winnerPublickey",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "soloteryAuthority",
+          "isMut": true,
+          "isSigner": true
+        }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "SoLotery",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "authority",
+            "type": "publicKey"
+          },
+          {
+            "name": "bumpOriginal",
+            "type": "u8"
+          },
+          {
+            "name": "winnerPublickey",
+            "type": "publicKey"
+          },
+          {
+            "name": "chooseWinnerOnlyOneTime",
+            "type": "u8"
+          },
+          {
+            "name": "secureCheck",
+            "type": "i64"
+          },
+          {
+            "name": "players",
+            "type": {
+              "vec": "publicKey"
+            }
+          },
+          {
+            "name": "owner1",
+            "type": "publicKey"
+          },
+          {
+            "name": "bestProposal1",
+            "type": "u64"
+          },
+          {
+            "name": "owner2",
+            "type": "publicKey"
+          },
+          {
+            "name": "bestProposal2",
+            "type": "u64"
+          },
+          {
+            "name": "owner3",
+            "type": "publicKey"
+          },
+          {
+            "name": "bestProposal3",
+            "type": "u64"
+          },
+          {
+            "name": "owner4",
+            "type": "publicKey"
+          },
+          {
+            "name": "bestProposal4",
+            "type": "u64"
+          },
+          {
+            "name": "owner5",
+            "type": "publicKey"
+          },
+          {
+            "name": "bestProposal5",
+            "type": "u64"
+          },
+          {
+            "name": "owner6",
+            "type": "publicKey"
+          },
+          {
+            "name": "bestProposal6",
+            "type": "u64"
+          },
+          {
+            "name": "owner7",
+            "type": "publicKey"
+          },
+          {
+            "name": "bestProposal7",
+            "type": "u64"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "JustOnce",
+      "msg": "The winner can only be chosen once"
+    },
+    {
+      "code": 6001,
+      "name": "YouAreNotSOLotery",
+      "msg": "You are not SOLotery key"
+    },
+    {
+      "code": 6002,
+      "name": "ThisIsNotTheWinner",
+      "msg": "This is not the winner"
+    },
+    {
+      "code": 6003,
+      "name": "WrongStake",
+      "msg": "This is not the stake account"
+    },
+    {
+      "code": 6004,
+      "name": "NoWinner",
+      "msg": "No winner has been chosen"
+    },
+    {
+      "code": 6005,
+      "name": "Limit",
+      "msg": "The player limit is 300"
+    },
+    {
+      "code": 6006,
+      "name": "IncorrectTimestamp",
+      "msg": "19:00 Argentine time"
+    },
+    {
+      "code": 6007,
+      "name": "OwnerError",
+      "msg": "You are not a owner"
+    },
+    {
+      "code": 6008,
+      "name": "AmountError",
+      "msg": "Your proposal is not superior to the existing one"
+    }
+  ],
+  "metadata": {
+    "address": "Ca8tecWTapYzeGfa8FvAMSo6JCheTRPvQhsjebZm56YE"
+  }
+}
