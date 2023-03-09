@@ -3,7 +3,7 @@
 .pnp.js
 /coverage
 /build
-/mallrave(solana)
+/mallrave
 .DS_Store
 .env.local
 .env.development.local
