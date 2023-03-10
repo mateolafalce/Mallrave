@@ -1,0 +1,9 @@
+.add {
+    display: flex;
+    margin-bottom: 25px; 
+}
+.add img {
+    width: 100%;
+    height: 360px;
+    transition: opacity 0.5s ease-in-out;
+}

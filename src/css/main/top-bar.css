@@ -1,9 +1,24 @@
 .top-bar {
-    position: relative;
-    margin: 0%;
-    padding: 0%;
+    display: flex;
+    justify-content: right;
+    gap: 3px;
+    align-items: flex-start;
+    flex-flow: row wrap;
+    background-color: #2E4F66;
+    width: 100%;
+    height: 60px;
+
 }
-nav {
-    background-color: black;
-    margin: 0%;
+.roots {
+    width: 200px;
+    height: 25px;
+    background-color: #777DA7;
+    color: black;
+    display: flex;
+    text-align: justify;
+    align-content: center;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
 }
