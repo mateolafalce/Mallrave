@@ -1,6 +1,8 @@
 .add {
     display: flex;
     margin-bottom: 25px; 
+    box-shadow: 0 3px 10px 1px rgb(0 0 0 / 30%);
+    border-top: 2px solid black;
 }
 .add img {
     width: 100%;
